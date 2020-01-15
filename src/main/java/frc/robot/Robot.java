@@ -89,7 +89,7 @@ class Constants {
  * project.
  */
 public class Robot extends TimedRobot {
-  private TalonFX mytalon = new TalonFX(11);
+  private TalonFX mytalon = new TalonFX(12);
   private Joystick toggler = new Joystick(0);
 
   //private Joystick m_stick = new Joystick(0);
@@ -179,13 +179,13 @@ public class Robot extends TimedRobot {
   /**
    * This function is called periodically during operator control.
    */
-  private double RPMVelocity = 3000;
+  private double RPMVelocity = -1000;
   private boolean povDebounce = false;
   private double lastPOV = 0;
   public void changeRPM(double delta) {
     RPMVelocity += delta;
-    if (Math.abs(RPMVelocity) > 6000) {
-      RPMVelocity = 6000*(Math.abs(RPMVelocity)/RPMVelocity);
+    if (Math.abs(RPMVelocity) > 5000) {
+      RPMVelocity = 5000*(Math.abs(RPMVelocity)/RPMVelocity);
     }
   }
 
